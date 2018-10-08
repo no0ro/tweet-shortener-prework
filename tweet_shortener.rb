@@ -52,15 +52,14 @@ end
 #^^^ replaces long words with their expected short form
 
 
-def selective_tweet_shortener(tweet_string)
-  tweet_string.split(" ").map do |the_tweet|
-    if the_tweet.length > 140
-      word_substituter(the_tweet)
-    else
-      the_tweet
-    end
+
+def selective_tweet_shortener(tweet)
+  if tweet.length > 140
+    word_substituter(tweet)
+  else
+    tweet
   end
-end 
+end
  
 
 #^^^ shortens tweets that are more than 140 characters. 
