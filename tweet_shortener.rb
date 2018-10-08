@@ -14,11 +14,11 @@ def dictionary
 end 
 
 def word_substituter(tweet_string)
-  array_words = tweet_string.split(" ")
   new_name = dictionary
+  array_words = tweet_string.split(" ")
   
   array_words.map do |x| 
-    dictionary.map do |key, value|
+    new_name.map do |key, value|
       if x == key
         x.replace(value)
       end 
