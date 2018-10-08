@@ -59,7 +59,7 @@ def selective_tweet_shortener(tweet_string)
     #elsif the_tweet.length <= 140
      # the_tweet
     end
- # end
+  end
 end 
  
 
