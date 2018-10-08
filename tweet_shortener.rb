@@ -66,13 +66,11 @@ end
 #does not shorten tweets that are less than 130 characters
 
 def shortened_tweet_truncator(tweet_string)
-  tweet_string.split(" ").map do |the_tweet|
-    if the_tweet.length > 140
-      word_substituter(the_tweet)[0..140] + "..."
+    if tweet_string.length > 140
+      tweet_string[0..140] + "..."
     else
-      the_tweet
+      tweet_string
     end
-  end.join(" ")
 end 
 
 #^^^truncates tweets over 140 characters after shortening
