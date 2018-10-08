@@ -27,6 +27,19 @@ def word_substituter(tweet_string)
   array_words.join(" ")
 end 
 
+def word_substituter(string)
+  new_name = dictionary
+  array = []
+  string.split(' ').each do |word|
+    if new_name[word.downcase]
+      array << new_name[word.downcase]
+    else
+      array<< word
+    end
+  end
+  array.join(' ')
+end
+
 #^^^ replaces long words with their expected short form
 
 
