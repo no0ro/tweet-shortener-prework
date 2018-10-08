@@ -14,10 +14,11 @@ def dictionary
 end 
 
 def word_substituter(tweet_string)
+  new_name = dictionary
   array_words = tweet_string.split(" ")
   
   array_words.map do |x| 
-    dictionary.map do |key, value|
+    new_name.map do |key, value|
       if x == key
         x.replace(value)
       end 
@@ -25,6 +26,19 @@ def word_substituter(tweet_string)
   end 
   array_words.join(" ")
 end 
+
+def word_substituter(string)
+  new_name = dictionary
+  array = []
+  string.split(' ').each do |word|
+    if new_name[word.downcase]
+      array << new_name[word.downcase]
+    else
+      array<< word
+    end
+  end
+  array.join(' ')
+end
 
 #^^^ replaces long words with their expected short form
 
@@ -38,27 +52,25 @@ end
 #^^^ replaces long words with their expected short form
 
 
-def selective_tweet_shortener(tweet_string)
-  tweet_string.split(" ").map do |the_tweet|
-    if the_tweet.length > 140
-      word_substituter(the_tweet)
-    elsif the_tweet.length <= 140
-      the_tweet
-    end 
-  end 
-end 
+
+def selective_tweet_shortener(tweet)
+  if tweet.length > 140
+    word_substituter(tweet)
+  else
+    tweet
+  end
+end
+ 
 
 #^^^ shortens tweets that are more than 140 characters. 
 #does not shorten tweets that are less than 130 characters
 
 def shortened_tweet_truncator(tweet_string)
-  tweet_string.split(" ").map do |the_tweet|
-    if the_tweet.length > 140
-      word_substituter(the_tweet)[0..140] + "..."
+    if tweet_string.length > 140
+      tweet_string[0..136] + "..."
     else
-      the_tweet
+      tweet_string
     end
-  end.join(" ")
 end 
 
 #^^^truncates tweets over 140 characters after shortening
